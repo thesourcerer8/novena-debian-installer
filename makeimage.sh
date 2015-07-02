@@ -31,6 +31,6 @@ gzip <newinitrd >newinitrd.gz
 mkdir boot
 mkimage -A arm -T ramdisk -C none -n uInitrd -d ./newinitrd.gz ./boot/uInitrd
 
-cp uenv.txt boot/uenv.txt
+cp uEnv.txt boot/uEnv.txt
 
-echo "Now copy boot/uInitrd and boot/uenv.txt into the boot partition"
+echo "Now copy boot/uInitrd and boot/uEnv.txt into the boot partition"
