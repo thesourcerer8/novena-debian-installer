@@ -1,5 +1,8 @@
 echo Fetching base Initial-Ramdisk:
-wget http://linux.citylink.co.nz/debian/dists/stable/main/installer-armhf/current/images/netboot/initrd.gz
+wget -O initrd.gz http://linux.citylink.co.nz/debian/dists/stable/main/installer-armhf/current/images/netboot/initrd.gz
+
+echo Fetching Kosagi Key:
+wget -O kosagi.gpg.key http://bunniefoo.com/kosagi-deb/kosagi.gpg.key
 
 echo Installing necessay tools:
 sudo apt-get install u-boot-tools
@@ -20,6 +23,15 @@ cp -r /lib/modules/* lib/modules/
 echo Copying preseed
 cp ../preseed.cfg preseed.cfg
 
+echo Copying Kosagi repo key
+cp ../kosagi.gpg.key kosagi.gpg.key
+
+echo Copying fdisk for partitioning
+cp /sbin/fdisk sbin/fdisk
+
+cp /lib/arm-linux-gnueabihf/libblkid.so.1 /lib/arm-linux-gnueabihf/libuuid.so.1 /lib/arm-linux-gnueabihf/libsmartcols.so.1 /lib/arm-linux-gnueabihf/libc.so.6 lib/arm-linux-gnueabihf/
+
+
 echo Creating new ramdisk image
 find . | cpio -H newc -o >../newinitrd
 
@@ -32,5 +44,8 @@ mkdir boot
 mkimage -A arm -T ramdisk -C none -n uInitrd -d ./newinitrd.gz ./boot/uInitrd
 
 cp uEnv.txt boot/uEnv.txt
+cp uEnv.txt boot/uEnv-install.txt
+cp uEnv-boot.txt boot/uEnv-boot.txt
 
-echo "Now copy boot/uInitrd and boot/uEnv.txt into the boot partition"
+echo "Now copy boot/uInitrd and boot/uEnv*.txt into the boot partition"
+echo "If you want to rerun the installer later on, just rename uInitrd-install to uInitrd and copy uEnv-install.txt over uEnv.txt"
