@@ -6,8 +6,8 @@ wget -O hooks.tgz http://www2.futureware.at/novena/hooks.tgz
 
 echo Fetching Kosagi Key: 
 wget -O kosagi.gpg.key http://bunniefoo.com/kosagi-deb/kosagi.gpg.key
-
 gpg  --recv-key 602d46ae38d68b72 ; gpg --export -a >repo.gpg.key
+wget -O newkey.gpg.key https://github.com/xobs/kosagi-repo/raw/master/etc/apt/trusted.gpg.d/kosagi.gpg
 
 echo Installing necessay tools:
 sudo apt-get install u-boot-tools
@@ -36,6 +36,7 @@ cp ../preseed.cfg preseed.cfg
 echo Copying Kosagi repo key
 cp ../kosagi.gpg.key kosagi.gpg.key
 cp ../repo.gpg.key repo.gpg.key
+cp ../newkey.gpg.key newkey.gpg.key
 
 echo Copying fdisk for partitioning
 cp /sbin/fdisk sbin/fdisk
@@ -60,9 +61,6 @@ mkdir boot
 mkimage -A arm -T ramdisk -C none -n uInitrd -d ./newinitrd.gz ./boot/uInitrd
 
 cp uEnv.txt boot/uEnv.txt
-#cp uEnv.txt boot/uEnv-install.txt
-#cp uEnv-boot.txt boot/uEnv-boot.txt
 
 echo "Now copy boot/uInitrd and boot/uEnv.txt into the /boot partition"
 echo "If you want to rerun the installer later on, just rename uInitrd-install to uInitrd again"
-
