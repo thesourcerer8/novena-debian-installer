@@ -28,7 +28,9 @@ cp -r /lib/modules/* lib/modules/
 
 echo Copying Bluetooth firmware
 mkdir lib/firmware
-cp /lib/firmware/ar3k/AthrBT_0x11020000.dfu lib/firmware/
+mkdir lib/firmware/ar3k
+cp /lib/firmware/ar3k/AthrBT_0x11020000.dfu lib/firmware/ar3k/
+cp /lib/firmware/ar3k/ramps_0x11020000_40.dfu lib/firmware/ar3k/
 
 echo Copying preseed
 cp ../preseed.cfg preseed.cfg
@@ -64,3 +66,4 @@ cp uEnv.txt boot/uEnv.txt
 
 echo "Now copy boot/uInitrd and boot/uEnv.txt into the /boot partition"
 echo "If you want to rerun the installer later on, just rename uInitrd-install to uInitrd again"
+
