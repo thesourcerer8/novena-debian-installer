@@ -4,7 +4,7 @@ Modifies a Debian installer to be useable for Novena
 At the moment it is designed to do a installation from a MicroSD card to a SSD or Harddisk on the SATA port, where the root partition will end up in /dev/sda2, or the system uses an LUKS encrypted partition.
 If you have a different partitioning layout, please adapt the uEnv*.txt accordingly.
 
-To use the installer, you can get a ready-made image from http://www2.futureware.at/novena/novena-installer-microsd.img , copy that to a MicroSD card with dd or some other imaging tool, and then boot your Novena from that MicroSD card.
+To use the installer, you can get a ready-made image from http://www2.futureware.at/novena/novena-installer-microsd.img (sha512sum is 9a91f978d11ae698c2178033808d0324be43acc78fe7f2eef11d8f1a0aa013a37b808b6a9128898db53e4a63016039dce7e57f4ace56b331cee58822364c2ec4), copy that to a MicroSD card with dd or some other imaging tool, and then boot your Novena from that MicroSD card.
 
 To build the image yourself, take the standard Novena Micro-SD image ( http://repo.novena.io/novena/images/novena-mmc-disk-r1.img ), enlarge the boot partition (or copy the files and create a new msdos partition), run makeinstall.sh on a Novena system, and then copy the files that are generated in boot/ to the boot partition.
 
