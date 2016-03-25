@@ -1,7 +1,4 @@
-echo Fetching base Initial-Ramdisk:
-wget -O initrd.gz http://linux.citylink.co.nz/debian/dists/stable/main/installer-armhf/current/images/netboot/initrd.gz
-
-echo making tgs file
+echo making tgz file
 tar -zcvf hooks.tgz etc
 
 echo Fetching Kosagi Key: 
