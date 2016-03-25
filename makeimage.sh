@@ -1,8 +1,8 @@
 echo Fetching base Initial-Ramdisk:
 wget -O initrd.gz http://linux.citylink.co.nz/debian/dists/stable/main/installer-armhf/current/images/netboot/initrd.gz
 
-echo Fetching Novena Update Hooks:
-wget -O hooks.tgz http://www2.futureware.at/novena/hooks.tgz
+echo making tgs file
+tar -zcvf hooks.tgz etc
 
 echo Fetching Kosagi Key: 
 echo 4C0E70D9 is the new key
