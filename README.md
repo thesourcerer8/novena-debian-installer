@@ -16,3 +16,4 @@ The first one /etc/initramfs-tools/hooks/novena-hook.sh works inside mkinitramfs
 
 /etc/X11/xorg.conf is also included in case you want a graphical system.
 
+Note that you will have to change the UUID in uEnv.txt to your system. When you get to the recovery, go to /dev/disk/by-uuid to find the correct one. Assuming you picked "place all in one partition", the right UUID should be the second from the right. However, if it isnt, the process of elimination will figure it out.
