@@ -9,7 +9,8 @@ echo 4C0E70D9 is the new key
 wget -O kosagi.gpg https://github.com/xobs/kosagi-repo/raw/master/etc/apt/trusted.gpg.d/kosagi.gpg
 
 echo Installing necessary tools:
-sudo apt-get install u-boot-tools
+sudo apt-get install u-boot-tools lvm2 cryptsetup
+echo Please ensure that u-boot-tools, lvm2, and cryptsetup installed
 
 echo Unpacking Ramdisk
 gunzip <initrd.gz >initrd-unpacked
