@@ -7,7 +7,8 @@ mkimage -A arm -T ramdisk -C none -n uInitrd -d "/usr/share/linux-novena/initrd.
 if [ $(mount | grep -c /dev/mmcblk0p1) != 1 ]
 then
 	mkdir /mnt/bootsd 
-	mount /dev/mmcblk0p1 /mnt/bootsd && cp /boot/uInitrd /mnt/bootsd/uInitrd 
+	mount /dev/mmcblk0p1 /mnt/bootsd
+	cp /boot/uInitrd /mnt/bootsd/uInitrd 
 	cp /mnt/bootsd/uInitrd /mnt/bootsd/uImage
 	cp /boot/zimage /mnt/bootsd/zimage
 	cp /boot/novena.dtb /mnt/bootsd/novena.dtb
