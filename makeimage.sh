@@ -1,3 +1,10 @@
+
+chmod 755 etc/initramfs-tools/hooks/novena-hook.sh
+chmod 755 etc/kernel/postinst.d/z-kernel-backup
+chmod 755 etc/kernel/postinst.d/zzz-novena-mkimage
+chmod 755 etc/X11/xorg.conf
+
+
 echo making tgz file
 tar -zcvf hooks.tgz etc
 
