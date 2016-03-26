@@ -8,7 +8,7 @@ echo Fetching Kosagi Key:
 echo 4C0E70D9 is the new key
 wget -O kosagi.gpg https://github.com/xobs/kosagi-repo/raw/master/etc/apt/trusted.gpg.d/kosagi.gpg
 
-echo Installing necessay tools:
+echo Installing necessary tools:
 sudo apt-get install u-boot-tools
 
 echo Unpacking Ramdisk
