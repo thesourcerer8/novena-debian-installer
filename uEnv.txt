@@ -1,5 +1,5 @@
 initrd_addr_r=0x12800000
 fh_initramfs_try=fatload \${bootsrc} \${bootdev} \${initrd_addr_r} uInitrd\${rec}
-fh_initramfs_ok=echo initramfs uInitrd\${rec} loaded; setenv bootargs rootwait ro; setenv rootdev /dev/sda2
+fh_initramfs_ok=echo initramfs uInitrd\${rec} loaded; setenv bootargs rootwait ro; setenv rootdev  UUID=fd443658-5539-4fa3-96af-691ef19c979c
 fh_initramfs_no=echo initramfs uInitrd\${rec} not found; setenv initrd_addr_r -; setenv bootargs rootwait rw ; setenv rootdev /dev/sda2
 finalhook=if run fh_initramfs_try; then run fh_initramfs_ok; else run fh_initramfs_no; fi; setenv bootargs \${bootargs} root=\${rootdev} console=\${consdev}
