@@ -49,8 +49,6 @@ cp /sbin/fdisk sbin/fdisk
 echo Copying mkimage
 cp /usr/bin/mkimage bin/mkimage
 
-cp /lib/arm-linux-gnueabihf/libblkid.so.1 /lib/arm-linux-gnueabihf/libuuid.so.1 /lib/arm-linux-gnueabihf/libsmartcols.so.1 /lib/arm-linux-gnueabihf/libc.so.6 lib/arm-linux-gnueabihf/
-
 cp ../hooks.tgz hooks.tgz
 
 echo Creating new ramdisk image
