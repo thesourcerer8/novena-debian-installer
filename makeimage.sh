@@ -37,12 +37,6 @@ cp ../preseed.cfg preseed.cfg
 echo Copying Kosagi repo key
 cp ../kosagi.gpg kosagi.gpg
 
-echo Copying fdisk for partitioning
-cp /sbin/fdisk sbin/fdisk
-
-echo Copying mkimage
-cp /usr/bin/mkimage bin/mkimage
-
 cp ../hooks.tgz hooks.tgz
 
 echo Creating new ramdisk image
