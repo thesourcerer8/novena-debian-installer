@@ -9,6 +9,8 @@ then
 	mkdir /mnt/bootsd 
 	mount /dev/mmcblk0p1 /mnt/bootsd && cp /boot/uInitrd /mnt/bootsd/uInitrd 
 	cp /mnt/bootsd/uInitrd /mnt/bootsd/uImage
+	cp /boot/zimage /mnt/bootsd/zimage
+	cp /boot/novena.dtb /mnt/bootsd/novena.dtb
 	umount /mnt/bootsd
 	rmdir /mnt/bootsd
 else
