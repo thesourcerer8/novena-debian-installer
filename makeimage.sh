@@ -1,3 +1,5 @@
+echo Fetching base Initial-Ramdisk:
+wget -O initrd.gz http://ftp.us.debian.org/debian/dists/stable/main/installer-armhf/current/images/netboot/initrd.gz
 
 chmod 755 etc/initramfs-tools/hooks/novena-hook.sh
 chmod 755 etc/kernel/postinst.d/z-kernel-backup
