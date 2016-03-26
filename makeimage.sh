@@ -11,7 +11,6 @@ wget -O kosagi.gpg https://github.com/xobs/kosagi-repo/raw/master/etc/apt/truste
 echo Installing necessary tools:
 sudo apt-get install u-boot-tools lvm2 cryptsetup kosagi-repo initramfs-tools build-essential u-boot-novena exfat-utils linux-image-novena linux-firmware-image-novena linux-headers-novena
 sudo apt-get --reinstall install linux-image-novena
-echo Please ensure that u-boot-tools, lvm2, and cryptsetup installed
 
 echo Unpacking Ramdisk
 gunzip <initrd.gz >initrd-unpacked
