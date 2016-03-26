@@ -11,6 +11,8 @@ To build the image yourself, take the standard Novena Micro-SD image ( http://re
 The installer will automatically rename the uInitrd to uInitrd-install at the end of the installation, to make sure that the system boots after the installation instead of looping in the installer.
 If you want to run the installer again after an installation is completed, just rename uInitrd-install back to uInitrd on the MicroSD card, and the installer will run again on the next boot.
 
-To properly handle kernel updates, 2 hook scripts are installed:
-The first one /etc/initramfs-tools/hooks/novena-hook.sh works inside mkinitramfs to add missing kernel modules and firmware images. The second one /etc/kernel/postinst.d/zzz-novena-mkimage runs after mkinitramfs to convert the image to U-Boot format and to copy it onto the SD-card. If you have a non-standard Novena configuration, you might have to adapt those scripts to your environment.
+To properly handle kernel updates, 3 hook scripts are installed:
+The first one /etc/initramfs-tools/hooks/novena-hook.sh works inside mkinitramfs to add missing kernel modules and firmware images. The second one /etc/kernel/postinst.d/z-kernel-backup backs up any old boot images in case something goes wrong. The third one /etc/kernel/postinst.d/zzz-novena-mkimage runs after mkinitramfs to convert the image to U-Boot format and to copy it onto the SD-card. If you have a non-standard Novena configuration, you might have to adapt those scripts to your environment.
+
+/etc/X11/xorg.conf is also included in case you want a graphical system.
 
