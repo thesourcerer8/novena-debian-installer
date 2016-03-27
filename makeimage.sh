@@ -32,6 +32,9 @@ mkdir lib/firmware/ar3k
 cp /lib/firmware/ar3k/AthrBT_0x11020000.dfu lib/firmware/ar3k/
 cp /lib/firmware/ar3k/ramps_0x11020000_40.dfu lib/firmware/ar3k/
 
+cp /lib/arm-linux-gnueabihf/libblkid.so.1 /lib/arm-linux-gnueabihf/libuuid.so.1 /lib/arm-linux-gnueabihf/libsmartcols.so.1 /lib/arm-linux-gnueabihf/libc.so.6 lib/arm-linux-gnueabihf/
+
+
 echo Copying preseed
 cp ../preseed.cfg preseed.cfg
 
