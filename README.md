@@ -6,11 +6,14 @@ If you have a different partitioning layout, please adapt the uEnv*.txt accordin
 
 To use the installer, you can get a ready-made image from http://www2.futureware.at/novena/novena-installer-microsd.img (sha512sum is fb4a59938ea2fea47af401825c532e5637e62e839abc4c638334e4aedb067e81b4eb886e61653c39d02c365dc55636c7f83c5b96f3ea1c48f6793c1c7efa42d0), copy that to a MicroSD card with dd or some other imaging tool, and then boot your Novena from that MicroSD card.
 
-To build the image yourself, take the standard Novena Micro-SD image ( http://repo.novena.io/novena/images/novena-mmc-disk-r1.img ), enlarge the boot partition (or copy the files and create a new msdos partition), run makeinstall.sh on a Novena system, and then copy the files that are generated in boot/ to the boot partition.
+To build the image yourself, take the standard Novena Micro-SD image ( http://repo.novena.io/novena/images/novena-mmc-disk-r1.img ), enlarge the boot partition (or copy the files and create a new msdos partition), run makeimage.sh on a Novena system, and then copy the files that are generated in boot/ to the boot partition.
 
 The installer will automatically rename the uInitrd to uInitrd-install at the end of the installation, to make sure that the system boots after the installation instead of looping in the installer.
 If you want to run the installer again after an installation is completed, just rename uInitrd-install back to uInitrd on the MicroSD card, and the installer will run again on the next boot.
 
-To properly handle kernel updates, 2 hook scripts are installed:
-The first one /etc/initramfs-tools/hooks/novena.hook.sh works inside mkinitramfs to add missing kernel modules and firmware images. The second one /etc/kernel/postinst.d/zzz-novena-mkimage runs after mkinitramfs to convert the image to U-Boot format and to copy it onto the SD-card. If you have a non-standard Novena configuration, you might have to adapt those scripts to your environment.
+To properly handle kernel updates, 3 hook scripts are installed:
+The first one /etc/initramfs-tools/hooks/novena-hook.sh works inside mkinitramfs to add missing kernel modules and firmware images. The second one /etc/kernel/postinst.d/z-kernel-backup backs up any old boot images in case something goes wrong. The third one /etc/kernel/postinst.d/zzz-novena-mkimage runs after mkinitramfs to convert the image to U-Boot format and to copy it onto the SD-card. If you have a non-standard Novena configuration, you might have to adapt those scripts to your environment.
 
+/etc/X11/xorg.conf is also included in case you want a graphical system.
+
+Note that you will have to change the UUID in uEnv.txt to your system. When you get to the recovery, go to /dev/disk/by-uuid to find the correct one. Assuming you picked "place all in one partition", the right UUID should be the second from the right. However, if it isnt, the process of elimination will figure it out.

@@ -1,0 +1,20 @@
+#!/bin/sh
+echo "Backing up old kernel to /usr/share/linux-novena/boot_backup/"
+if [ ! -d /usr/share/linux-novena/boot_backup/ ]; then
+	mkdir /usr/share/linux-novena/boot_backup/
+fi
+if [ -f /boot/uImage ]; then
+	cp /boot/uImage /usr/share/linux-novena/boot_backup/uImage_backup
+fi
+
+if [ -f /boot/uInitrd  ]; then
+	cp /boot/uInitrd /usr/share/linux-novena/boot_backup/uInitrd_backup
+fi
+
+if [ -f /boot/zimage  ]; then
+	cp "/boot/zimage" "/usr/share/linux-novena/boot_backup/zimage_backup"
+fi
+
+if [ -f /boot/zimage  ]; then
+	cp "/boot/novena.dtb" "/usr/share/linux-novena/boot_backup/novena_backup.dtb"
+fi

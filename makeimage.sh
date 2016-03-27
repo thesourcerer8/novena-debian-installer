@@ -1,15 +1,16 @@
 echo Fetching base Initial-Ramdisk:
-wget -O initrd.gz http://linux.citylink.co.nz/debian/dists/stable/main/installer-armhf/current/images/netboot/initrd.gz
+wget -O initrd.gz http://ftp.us.debian.org/debian/dists/stable/main/installer-armhf/current/images/netboot/initrd.gz
 
-echo Fetching Novena Update Hooks:
-wget -O hooks.tgz http://www2.futureware.at/novena/hooks.tgz
+echo making tgz file
+tar -zcvf hooks.tgz etc
 
 echo Fetching Kosagi Key: 
 echo 4C0E70D9 is the new key
 wget -O kosagi.gpg https://github.com/xobs/kosagi-repo/raw/master/etc/apt/trusted.gpg.d/kosagi.gpg
 
-echo Installing necessay tools:
-sudo apt-get install u-boot-tools
+echo Installing necessary tools:
+sudo apt-get install u-boot-tools lvm2 cryptsetup kosagi-repo initramfs-tools build-essential u-boot-novena exfat-utils linux-image-novena linux-firmware-image-novena linux-headers-novena
+sudo apt-get --reinstall install linux-image-novena
 
 echo Unpacking Ramdisk
 gunzip <initrd.gz >initrd-unpacked
@@ -31,19 +32,14 @@ mkdir lib/firmware/ar3k
 cp /lib/firmware/ar3k/AthrBT_0x11020000.dfu lib/firmware/ar3k/
 cp /lib/firmware/ar3k/ramps_0x11020000_40.dfu lib/firmware/ar3k/
 
+cp /lib/arm-linux-gnueabihf/libblkid.so.1 /lib/arm-linux-gnueabihf/libuuid.so.1 /lib/arm-linux-gnueabihf/libsmartcols.so.1 /lib/arm-linux-gnueabihf/libc.so.6 lib/arm-linux-gnueabihf/
+
+
 echo Copying preseed
 cp ../preseed.cfg preseed.cfg
 
 echo Copying Kosagi repo key
 cp ../kosagi.gpg kosagi.gpg
-
-echo Copying fdisk for partitioning
-cp /sbin/fdisk sbin/fdisk
-
-echo Copying mkimage
-cp /usr/bin/mkimage bin/mkimage
-
-cp /lib/arm-linux-gnueabihf/libblkid.so.1 /lib/arm-linux-gnueabihf/libuuid.so.1 /lib/arm-linux-gnueabihf/libsmartcols.so.1 /lib/arm-linux-gnueabihf/libc.so.6 lib/arm-linux-gnueabihf/
 
 cp ../hooks.tgz hooks.tgz
 
