@@ -29,4 +29,4 @@ Most of the novena specific packages are installed, but the following are not in
  - novena-bluetooth-reset
  - novena-heirloom
 
-Installing firmware-senoko is recommended after install. 
+Installing firmware-senoko is recommended after install (this is not installed automatically due to possible user intervention, leaving the user with a broken installer).
