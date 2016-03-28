@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "Installing new initrd to SD"
-mkimage -A arm -T ramdisk -C none -n uInitrd -d "/usr/share/linux-novena/initrd.img-$1" /boot/uInitrd
+mkimage -A arm -T ramdisk -C none -n uInitrd -d "$2" /boot/uInitrd
 
 
 
@@ -14,6 +14,7 @@ then
 	fi
 	cp /boot/zimage /mnt/bootsd/zimage
 	cp /boot/novena.dtb /mnt/bootsd/novena.dtb
+	cp /boot/u-boot* /mnt/bootsd/sd/
 	umount /mnt/bootsd
 	rmdir /mnt/bootsd
 fi
