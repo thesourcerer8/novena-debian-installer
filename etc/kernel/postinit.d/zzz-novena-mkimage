@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "Installing new initrd to SD"
-mkimage -A arm -T ramdisk -C none -n uInitrd -d "$2" /boot/uInitrd
+mkimage -A arm -T ramdisk -C none -n uInitrd -d "/usr/share/linux-novena/initrd.img-$1" /boot/uInitrd
 
 
 
