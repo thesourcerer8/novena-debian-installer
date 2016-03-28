@@ -14,8 +14,6 @@ If you want to run the installer again after an installation is completed, just 
 To properly handle kernel updates, 3 hook scripts are installed:
 The first one /etc/initramfs-tools/hooks/novena-hook.sh works inside mkinitramfs to add missing kernel modules and firmware images. The second one /etc/kernel/postinst.d/z-kernel-backup backs up any old boot images in case something goes wrong. The third one /etc/kernel/postinst.d/zzz-novena-mkimage runs after mkinitramfs to convert the image to U-Boot format and to copy it onto the SD-card. If you have a non-standard Novena configuration, you might have to adapt those scripts to your environment.
 
-/etc/X11/xorg.conf is also included in case you want a graphical system.
-
 Note that you will have to change the UUID in uEnv.txt to your system. When you get to the recovery, go to /dev/disk/by-uuid to find the correct one. Assuming you picked "place all in one partition", the right UUID should be the second from the right. However, if it isnt, the process of elimination will figure it out.
 
 Also note, if you are installing a new SSD (from http://www.kosagi.com/w/index.php?title=Novena_Main_Page):
