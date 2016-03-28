@@ -21,3 +21,12 @@ If the *rootfs_ssd* flag is set in the EEPROM, then the root parameter is set to
 
     For MBR partition tables: Change ID ('i') to 0x4e6f7653.
     For GPT partition tables: Change partition UUID ('u'). Note: fdisk wants the UUID in full 8-4-4-4-12 format, so you will want to make up some additional digits, e.g. 4e6f764d-0300-0000-0000-012345678901.
+
+Most of the novena specific packages are installed, but the following are not installed:
+
+ - firmware-senoko
+ - novena-whack-lcd
+ - novena-bluetooth-reset
+ - novena-heirloom
+
+Installing firmware-senoko is recommended after install. 
