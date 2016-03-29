@@ -12,6 +12,7 @@ then
 	if [ -f /boot/uImage ]; then
 		cp /boot/uImage /mnt/bootsd/uImage
 	fi
+	cp /boot/u-boot /mnt/bootsd/
 	cp /boot/zimage /mnt/bootsd/zimage
 	cp /boot/novena.dtb /mnt/bootsd/novena.dtb
 	umount /mnt/bootsd
