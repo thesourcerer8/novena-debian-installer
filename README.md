@@ -31,6 +31,10 @@ When asked what kernel to install, select "none".
 
 Note that you will have to change the UUID in uEnv.txt to your system. When you get to the recovery, go to /dev/disk/by-uuid to find the correct one. Assuming you picked "place all in one partition", the right UUID should be the second from the right. However, if it isnt, the process of elimination will figure it out.
 
+If you want to mount the microsd card boot sector, uncomment the boot line in /etc/fstab and add this line:
+
+  /dev/disk/by-path/platform-2198000.usdhc-part1        /boot        vfat    defaults        2    2
+
 Also note, if you are installing a new SSD (from http://www.kosagi.com/w/index.php?title=Novena_Main_Page):
 If the *rootfs_ssd* flag is set in the EEPROM, then the root parameter is set to **PARTUUID=4e6f7653-03**. If the *rootfs_ssd* flag is not set, or if booting into recovery mode, then the root parameter is set to **PARTUUID=4e6f764d-03**. This means that you should set your disk up such that the root partition is partition 3 (i.e. /dev/sda3), and set your disk ID correctly. To set the diskid, run fdisk on the disk, then go into Expert mode ('x'), then:
 
