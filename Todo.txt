@@ -9,4 +9,4 @@
  
  - The hooks are not merged with novena-debian-support. Once that happens, we can remove them from here.
  
- - u-boot does not update when u-boot-novena is updated, only when linux-image-novena is upgraded or reinstalled
+ - (if the microsd card is not mounted) u-boot does not update when u-boot-novena is updated, only when linux-image-novena is upgraded or reinstalled
