@@ -1,7 +1,7 @@
  - Add a script at the end to remove the kogasi repos. 
  The code:
  
- in-target grep -v "novena" /etc/apt/sources.list > /etc/apt/sources.list.new ; 
+ in-target grep -v "novena" /etc/apt/sources.list > /etc/apt/sources.list.new ; in-target mv /etc/apt/sources.list.new /etc/apt/sources.list
  
  should work, but does not for some reason
  
