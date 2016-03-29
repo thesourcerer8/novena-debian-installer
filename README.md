@@ -20,7 +20,7 @@ Installing firmware-senoko is recommended after install (this is not installed a
 
 Usage
 
-To use the installer, you can get a ready-made image from http://www2.futureware.at/novena/novena-installer-microsd.img (sha512sum is fb4a59938ea2fea47af401825c532e5637e62e839abc4c638334e4aedb067e81b4eb886e61653c39d02c365dc55636c7f83c5b96f3ea1c48f6793c1c7efa42d0), copy that to a MicroSD card with dd or some other imaging tool, and then boot your Novena from that MicroSD card.
+To use the installer, you can get a ready-made image from https://drive.google.com/folderview?id=0B0lyI8w151RIOHdhcXJvLWNQMTA (sha512sum is 5a1a6c834ad4e315084b8051d7f8b4ac09df0936b6921e44c7424d4ae669310b65fa8846df057876a5f1a19654a886dfb2f61dda208061a3390cd7fc10d7878, last built March 28, 2016), copy that to a MicroSD card with dd or some other imaging tool, and then boot your Novena from that MicroSD card.
 
 To build the image yourself, take the standard Novena Micro-SD image ( http://repo.novena.io/novena/images/novena-mmc-disk-r1.img ), enlarge the boot partition (or copy the files and create a new msdos partition), run makeimage.sh on a Novena system, and then copy the files that are generated in boot/ to the boot partition.
 
