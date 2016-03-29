@@ -44,3 +44,7 @@ If the *rootfs_ssd* flag is set in the EEPROM, then the root parameter is set to
 Testing
 
 Note that this has been tested on a Novena laptop. Only guided partitions where tested (encrypted and non-excryptedm and only "make one partition"). UART output should work, as should HDMI, but this has been untested. If you have tested these successfully or have issues, please let me know.
+
+KNOWN BUGS
+
+If you get a problem with the clock set up, the install will fail. you must disconnect AC and battery power and restart the install. This is related to problems described here: http://www.kosagi.com/forums/viewtopic.php?id=369
