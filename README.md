@@ -37,3 +37,6 @@ If the *rootfs_ssd* flag is set in the EEPROM, then the root parameter is set to
     For MBR partition tables: Change ID ('i') to 0x4e6f7653.
     For GPT partition tables: Change partition UUID ('u'). Note: fdisk wants the UUID in full 8-4-4-4-12 format, so you will want to make up some additional digits, e.g. 4e6f764d-0300-0000-0000-012345678901.
 
+Testing
+
+Note that this has been tested on a Novena laptop. Only guided partitions where tested (encrypted and non-excryptedm and only "make one partition"). UART output should work, as should HDMI, but this has been untested. If you have tested these successfully or have issues, please let me know.
