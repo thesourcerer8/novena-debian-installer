@@ -31,7 +31,7 @@ When asked what kernel to install, select "none".
 
 Note that you will have to change the UUID in uEnv.txt to your system. When you get to the recovery, go to /dev/disk/by-uuid to find the correct one. Assuming you picked "place all in one partition", the right UUID should be the second from the right. However, if it isnt, the process of elimination will figure it out.
 
-If you want to mount the microsd card boot sector, uncomment the boot line in /etc/fstab and add this line:
+If you want to mount the microsd card boot sector, comment the boot line in /etc/fstab and add this line:
 
   /dev/disk/by-path/platform-2198000.usdhc-part1        /boot        vfat    defaults        2    2
 
