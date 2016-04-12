@@ -1,0 +1,12 @@
+ - Add a script at the end to remove the kogasi repos. 
+ The code:
+ 
+ in-target grep -v "novena" /etc/apt/sources.list > /etc/apt/sources.list.new ; in-target mv /etc/apt/sources.list.new /etc/apt/sources.list
+ 
+ should work, but does not for some reason
+ 
+ - As of now, mkimage only worked when the linux-image is reinstalled, not on any update-initramfs. The default initramfs is stored at /usr/share/linux-novena, but I cannot get the system to recognise that (it thinks it is at /boot)
+ 
+ - The hooks are not merged with novena-debian-support. Once that happens, we can remove them from here.
+ 
+ - (if the microsd card is not mounted) u-boot does not update when u-boot-novena is updated, only when linux-image-novena is upgraded or reinstalled
