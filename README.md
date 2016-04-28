@@ -42,3 +42,4 @@ CONTRIBUTORS
 
 - xobs
 - chris4795
+- cyplo
