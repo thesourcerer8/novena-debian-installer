@@ -8,8 +8,9 @@ echo Fetching Kosagi Key:
 echo 4C0E70D9 is the new key
 wget -O kosagi.gpg https://github.com/xobs/kosagi-repo/raw/master/etc/apt/trusted.gpg.d/kosagi.gpg
 
-echo Installing necessay tools:
-sudo apt-get install u-boot-tools
+echo Installing necessary tools:
+sudo apt-get install u-boot-tools lvm2 cryptsetup kosagi-repo initramfs-tools build-essential u-boot-novena exfat-utils linux-image-novena linux-firmware-image-novena linux-headers-novena
+sudo apt-get --reinstall install linux-image-novena
 
 echo Unpacking Ramdisk
 gunzip <initrd.gz >initrd-unpacked
