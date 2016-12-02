@@ -1,0 +1,16 @@
+#!/bin/sh
+echo "Installing new initrd to SD"
+mkimage -A arm -T ramdisk -C none -n uInitrd -d "/usr/share/linux-novena/initrd.img-$1" /boot/uInitrd
+
+
+
+if [ $(mount | grep -c /dev/mmcblk0p1) != 1 ]
+then
+	mkdir /mnt/bootsd 
+	mount /dev/mmcblk0p1 /mnt/bootsd && cp /boot/uInitrd /mnt/bootsd/uInitrd 
+	cp /mnt/bootsd/uInitrd /mnt/bootsd/uImage
+	umount /mnt/bootsd
+	rmdir /mnt/bootsd
+else
+	cp /boot/uInitrd /boot/uImage
+fi
